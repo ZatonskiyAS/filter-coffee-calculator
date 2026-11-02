@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#17231f">
+<meta name="description" content="Минималистичный калькулятор фильтр-кофе для бариста">
+<link rel="manifest" href="manifest.webmanifest">
+<title>Filter Coffee</title>
+<style>
+:root{color-scheme:light;--ink:#17231f;--muted:#68756f;--line:#e3e9e5;--paper:#f5f7f4;--card:#fff;--accent:#315c49;--soft:#eaf1ec}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:620px;margin:0 auto;padding:24px 18px 48px}
+header{display:flex;justify-content:space-between;align-items:center;margin:8px 0 26px}
+.brand{font-size:13px;letter-spacing:.16em;font-weight:800}.tag{font-size:11px;color:var(--muted);border:1px solid var(--line);padding:6px 9px;border-radius:99px}
+h1{font-size:32px;line-height:1.1;letter-spacing:-.04em;margin:0 0 8px} .sub{color:var(--muted);margin:0 0 24px;font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0}
+h2{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 16px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}.field:last-child{margin-bottom:0}
+label{font-size:12px;color:var(--muted);font-weight:650}
+input,select{width:100%;min-width:0;border:1px solid var(--line);background:#fff;border-radius:11px;padding:12px 11px;font:inherit;color:var(--ink);outline:none}
+input:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px #315c4918}
+button{border:0;border-radius:12px;background:var(--ink);color:white;padding:15px 18px;font:700 15px inherit;width:100%;cursor:pointer;margin-top:6px}
+.result{background:var(--ink);color:#fff;border-radius:18px;padding:20px;margin-top:16px}
+.result .eyebrow{font-size:11px;letter-spacing:.13em;color:#b9c9bf;text-transform:uppercase}
+.dose{font-size:48px;font-weight:800;letter-spacing:-.05em;line-height:1.1;margin:8px 0 2px}.unit{font-size:14px;color:#c7d2cb}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.stat{background:#ffffff12;border-radius:12px;padding:12px}.stat small{display:block;color:#c7d2cb;font-size:11px}.stat strong{font-size:17px}
+.result h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#c7d2cb;margin:20px 0 7px}.result p{margin:0;font-size:14px}
+.note{font-size:12px;color:var(--muted);margin:14px 2px}.hidden{display:none}.error{color:#a33;font-size:13px;margin-top:8px}
+footer{text-align:center;color:var(--muted);font-size:11px;margin-top:24px}
+@media(max-width:380px){main{padding:18px 13px 36px}h1{font-size:28px}.card{padding:15px}}
+</style>
+</head>
+<body>
+<main>
+<header><div class="brand">FILTER / COFFEE</div><div class="tag">BARISTA TOOL</div></header>
+<h1>Калькулятор<br>фильтр-кофе</h1>
+<p class="sub">Стартовый рецепт и параметры зерна. Настраивай под вкус в чашке.</p>
+
+<section class="card">
+<h2>Зерно</h2>
+<div class="field"><label for="region">Страна / регион</label><input id="region" list="regions" placeholder="Например, Колумбия - Уила"><datalist id="regions"><option>Эфиопия</option><option>Кения</option><option>Колумбия</option><option>Бразилия</option><option>Руанда</option><option>Коста-Рика</option><option>Гватемала</option><option>Панама</option><option>Перу</option><option>Индонезия</option></datalist></div>
+<div class="grid">
+<div class="field"><label for="variety">Разновидность</label><input id="variety" placeholder="Bourbon, Caturra…"></div>
+<div class="field"><label for="process">Обработка</label><select id="process"><option value="">Не указана</option><option>Washed</option><option>Natural</option><option>Honey</option><option>Anaerobic</option><option>Double fermentation</option><option>Other</option></select></div>
+<div class="field"><label for="roast">Дата обжарки</label><input id="roast" type="date"></div>
+<div class="field"><label for="roastlevel">Обжарка</label><select id="roastlevel"><option>Средняя</option><option>Светлая</option><option>Средне-светлая</option><option>Средне-тёмная</option></select></div>
+</div>
+</section>
+
+<section class="card">
+<h2>Заваривание</h2>
+<div class="grid">
+<div class="field"><label for="water">Вода, мл</label><input id="water" type="number" min="1" step="1" value="1600"></div>
+<div class="field"><label for="grind">Помол Ditting</label><input id="grind" type="number" min="0" step="0.1" value="8"></div>
+<div class="field"><label for="ratio">Пропорция, г/л</label><input id="ratio" type="number" min="1" max="100" step="0.5" value="63"></div>
+<div class="field"><label for="temp">Температура, °C</label><input id="temp" type="number" min="70" max="100" step="0.5" value="93"></div>
+</div>
+<div class="field"><label for="goal">Желаемый профиль</label><select id="goal"><option value="balanced">Сбалансированный</option><option value="sweet">Больше сладости и тела</option><option value="clean">Чистота и яркость</option></select></div>
+<button id="calculate" type="button">Рассчитать рецепт</button>
+<div id="error" class="error hidden" role="alert"></div>
+</section>
+
+<section id="output" class="result" aria-live="polite">
+<div class="eyebrow">Стартовая дозировка</div>
+<div class="dose" id="dose">100.8 <span class="unit">г кофе</span></div>
+<div class="unit" id="ratioText">Соотношение 1:15.9</div>
+<div class="stats">
+<div class="stat"><small>Вода</small><strong id="waterOut">1600 мл</strong></div>
+<div class="stat"><small>Ditting</small><strong id="grindOut">8</strong></div>
+<div class="stat"><small>Температура</small><strong id="tempOut">93 °C</strong></div>
+<div class="stat"><small>Возраст обжарки</small><strong id="ageOut">—</strong></div>
+</div>
+<h3>Стартовая настройка</h3><p id="advice">Начни с рассчитанной дозировки. Оцени чашку и корректируй помол небольшими шагами.</p>
+<h3>Дескрипторы</h3><p id="descriptors">Укажи регион, чтобы увидеть общие вкусовые ориентиры. Это не предсказание вкуса конкретного лота.</p>
+</section>
+<p class="note">Важно: региональные дескрипторы - только общие ориентиры. Реальный профиль зависит от конкретного лота, разновидности, обработки, ферментации, обжарки и заваривания. Помол Ditting не переводится в универсальную экстракцию без калибровки конкретной кофемолки.</p>
+<footer>FILTER / COFFEE · локальный калькулятор</footer>
+</main>
+<script>
+const profiles = [
+  [/эфиоп/i, "Цветочные ноты, цитрус, бергамот, косточковые фрукты"],
+  [/кени/i, "Чёрная смородина, красные ягоды, цитрусовые"],
+  [/колумб/i, "Разнообразный профиль: карамель, фрукты, цитрусовые или шоколад"],
+  [/бразил/i, "Шоколад, орехи, карамель, сухофрукты"],
+  [/руанд/i, "Красные ягоды, яблоко, цитрусовые, чайные ноты"],
+  [/коста.?рик/i, "Цитрусовые, яблоко, карамель, тропические фрукты"],
+  [/гватемал/i, "Шоколад, орехи, яблоко, специи"],
+  [/панам/i, "Цветочные ноты, цитрус, персик, тропические фрукты"],
+  [/перу/i, "Орехи, карамель, яблоко, шоколад"],
+  [/индонез/i, "Специи, тёмный шоколад, древесные ноты"]
+];
+const $ = id => document.getElementById(id);
+function calculate(){
+  const water = Number($("water").value), grind = Number($("grind").value);
+  const ratio = Number($("ratio").value), temp = Number($("temp").value);
+  const error = $("error"); error.classList.add("hidden"); error.textContent = "";
+  if (![water,grind,ratio,temp].every(Number.isFinite) || water<=0 || grind<0 || ratio<=0 || temp<70 || temp>100){
+    error.textContent = "Проверь значения: вода и пропорция должны быть больше нуля, температура - от 70 до 100 °C, помол - неотрицательное число.";
+    error.classList.remove("hidden"); return;
+  }
+  const coffee = water / 1000 * ratio;
+  $("dose").innerHTML = `${coffee.toFixed(1)} <span class="unit">г кофе</span>`;
+  $("ratioText").textContent = `Соотношение 1:${(water/coffee).toFixed(1)}`;
+  $("waterOut").textContent = `${water.toLocaleString("ru-RU")} мл`;
+  $("grindOut").textContent = String(grind).replace(".", ",");
+  $("tempOut").textContent = `${temp} °C`;
+  const roast = $("roast").value;
+  if (roast){
+    const days = Math.floor((new Date().setHours(0,0,0,0)-new Date(roast+"T00:00:00").getTime())/86400000);
+    $("ageOut").textContent = days < 0 ? "Дата в будущем" : `${days} дн.`;
+  } else $("ageOut").textContent = "Не указана";
+  const goal = $("goal").value;
+  let advice = "Начни с этой дозировки. Если чашка пустая и водянистая - проверь помол и равномерность пролива; если сухая и чрезмерно горькая - попробуй чуть крупнее помол.";
+  if(goal==="sweet") advice = "Для более плотной и сладкой чашки начни с пропорции 65 г/л, затем оцени результат. При сухости или горечи попробуй чуть крупнее помол.";
+  if(goal==="clean") advice = "Для более чистой и лёгкой чашки начни с пропорции 60 г/л. При резкой/пустой чашке корректируй помол и технику пролива.";
+  $("advice").textContent = advice;
+  const region = $("region").value.trim();
+  const match = profiles.find(([re])=>re.test(region));
+  let desc = match ? match[1] : "Для этого региона нет общего справочного ориентира.";
+  if($("process").value) desc += ` Обработка: ${$("process").value}. Она может заметно влиять на аромат и текстуру, но сама по себе не позволяет точно предсказать дескрипторы.`;
+  if($("variety").value.trim()) desc += ` Разновидность: ${$("variety").value.trim()}.`;
+  $("descriptors").textContent = desc + " Сверяй с каппингом и описанием обжарщика.";
+}
+$("calculate").addEventListener("click", calculate);
+["water","grind","ratio","temp","region","process","variety","roast","roastlevel","goal"].forEach(id=>$(id).addEventListener("change",calculate));
+calculate();
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+}
+</script>
+</body>
+</html>

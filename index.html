@@ -1,133 +1,248 @@
 <!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#17231f">
-<meta name="description" content="Минималистичный калькулятор фильтр-кофе для бариста">
-<link rel="manifest" href="manifest.webmanifest">
-<title>Filter Coffee</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#4F1A23"><meta name="description" content="Калькулятор фильтр-кофе FILTER COFFEE">
+<link rel="manifest" href="manifest.webmanifest"><title>FILTER COFFEE</title>
 <style>
-:root{color-scheme:light;--ink:#17231f;--muted:#68756f;--line:#e3e9e5;--paper:#f5f7f4;--card:#fff;--accent:#315c49;--soft:#eaf1ec}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-main{max-width:620px;margin:0 auto;padding:24px 18px 48px}
-header{display:flex;justify-content:space-between;align-items:center;margin:8px 0 26px}
-.brand{font-size:13px;letter-spacing:.16em;font-weight:800}.tag{font-size:11px;color:var(--muted);border:1px solid var(--line);padding:6px 9px;border-radius:99px}
-h1{font-size:32px;line-height:1.1;letter-spacing:-.04em;margin:0 0 8px} .sub{color:var(--muted);margin:0 0 24px;font-size:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0}
-h2{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 16px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}.field:last-child{margin-bottom:0}
-label{font-size:12px;color:var(--muted);font-weight:650}
-input,select{width:100%;min-width:0;border:1px solid var(--line);background:#fff;border-radius:11px;padding:12px 11px;font:inherit;color:var(--ink);outline:none}
-input:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px #315c4918}
-button{border:0;border-radius:12px;background:var(--ink);color:white;padding:15px 18px;font:700 15px inherit;width:100%;cursor:pointer;margin-top:6px}
-.result{background:var(--ink);color:#fff;border-radius:18px;padding:20px;margin-top:16px}
-.result .eyebrow{font-size:11px;letter-spacing:.13em;color:#b9c9bf;text-transform:uppercase}
-.dose{font-size:48px;font-weight:800;letter-spacing:-.05em;line-height:1.1;margin:8px 0 2px}.unit{font-size:14px;color:#c7d2cb}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.stat{background:#ffffff12;border-radius:12px;padding:12px}.stat small{display:block;color:#c7d2cb;font-size:11px}.stat strong{font-size:17px}
-.result h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#c7d2cb;margin:20px 0 7px}.result p{margin:0;font-size:14px}
-.note{font-size:12px;color:var(--muted);margin:14px 2px}.hidden{display:none}.error{color:#a33;font-size:13px;margin-top:8px}
-footer{text-align:center;color:var(--muted);font-size:11px;margin-top:24px}
-@media(max-width:380px){main{padding:18px 13px 36px}h1{font-size:28px}.card{padding:15px}}
-</style>
-</head>
-<body>
-<main>
-<header><div class="brand">FILTER / COFFEE</div><div class="tag">BARISTA TOOL</div></header>
-<h1>Калькулятор<br>фильтр-кофе</h1>
-<p class="sub">Стартовый рецепт и параметры зерна. Настраивай под вкус в чашке.</p>
+:root{color-scheme:light;--ink:#2d171b;--muted:#765f63;--line:#eadde0;--paper:#4F1A23;--card:#fffaf7;--accent:#7b303d;--soft:#f4e8e9}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:620px;margin:0 auto;padding:24px 18px 48px}header{display:flex;justify-content:space-between;align-items:center;margin:8px 0 26px}.brand{font-size:13px;letter-spacing:.16em;font-weight:800}.tag{font-size:11px;color:var(--muted);border:1px solid var(--line);padding:6px 9px;border-radius:99px}h1{font-size:32px;line-height:1.1;letter-spacing:-.04em;margin:0 0 8px}.sub{color:var(--muted);margin:0 0 24px;font-size:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:14px 0}h2{font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin:0 0 16px;color:var(--muted)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}.field:last-child{margin-bottom:0}label{font-size:12px;color:var(--muted);font-weight:650}input,select{width:100%;min-width:0;border:1px solid var(--line);background:#fff;border-radius:11px;padding:12px 11px;font:inherit;color:var(--ink);outline:none}input:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px #315c4918}button{border:0;border-radius:12px;background:var(--ink);color:white;padding:15px 18px;font:700 15px inherit;width:100%;cursor:pointer;margin-top:6px}.result{background:var(--ink);color:#fff;border-radius:18px;padding:20px;margin-top:16px}.eyebrow{font-size:11px;letter-spacing:.13em;color:#b9c9bf;text-transform:uppercase}.dose{font-size:48px;font-weight:800;letter-spacing:-.05em;line-height:1.1;margin:8px 0 2px}.unit{font-size:14px;color:#c7d2cb}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.stat{background:#ffffff12;border-radius:12px;padding:12px}.stat small{display:block;color:#c7d2cb;font-size:11px}.stat strong{font-size:17px}.infoValue{font-size:14px;font-weight:650;line-height:1.4;padding:10px 11px;background:var(--paper);border-radius:10px;min-height:42px}.infoHeading{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:16px 0 7px}.infoText{font-size:14px;margin:0;color:var(--ink);line-height:1.5}.result h3{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#c7d2cb;margin:20px 0 7px}.result p{margin:0;font-size:14px}.note{font-size:12px;color:var(--muted);margin:14px 2px}.error{color:#a33;font-size:13px;margin-top:8px}.hint{font-size:11px;color:var(--muted);margin:0 2px 12px}.pill{display:inline-block;background:var(--soft);color:var(--accent);padding:5px 9px;border-radius:20px;font-size:11px;margin:3px 4px 0 0}details{border-top:1px solid var(--line);padding:13px 0}details:first-of-type{border-top:0}summary{font-weight:700;font-size:14px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}summary:after{content:"＋";color:var(--accent)}details[open]>summary:after{content:"−"}.learn p,.learn li{font-size:13px;line-height:1.55}.learn p{margin:9px 0}.learn ul{padding-left:19px;margin:8px 0}.learn h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:16px 0 6px}.learn .callout{background:var(--soft);padding:11px 12px;border-radius:11px;font-size:12px;margin:10px 0}.learn .formula{font-weight:750;background:var(--paper);padding:10px;border-radius:9px;display:block;margin:8px 0}footer{text-align:center;color:#ead9dc;font-size:11px;margin-top:24px}header .brand{color:#fff7f4}header .tag{color:#f1dfe2;border-color:#9b626b;background:#ffffff0d}h1{color:#fff8f5}.sub{color:#e7cdd1}.card{box-shadow:0 8px 24px #260b1026}.result{background:#321017;border:1px solid #71313d}.result .eyebrow{color:#e0b9c0}.button,button{background:#321017}input:focus,select:focus{border-color:#9a5260;box-shadow:0 0 0 3px #7b303d22}.pill{background:#f0dfe2;color:#682632}.learn .callout{background:#f3e5e7;color:#44242a}.infoValue{background:#f4ebeb}.note{color:#e7cdd1}@media(max-width:380px){main{padding:18px 13px 36px}h1{font-size:28px}.card{padding:15px}}
 
-<section class="card">
-<h2>Зерно</h2>
-<div class="field"><label for="region">Страна / регион</label><input id="region" list="regions" placeholder="Например, Колумбия - Уила"><datalist id="regions"><option>Эфиопия</option><option>Кения</option><option>Колумбия</option><option>Бразилия</option><option>Руанда</option><option>Коста-Рика</option><option>Гватемала</option><option>Панама</option><option>Перу</option><option>Индонезия</option></datalist></div>
+/* FILTER COFFEE 3.5 - accessible burgundy / forest palette */
+:root{color-scheme:light;--ink:#29231F;--muted:#625650;--line:#D8C9B9;--paper:#4F1A23;--card:#F2E9DC;--accent:#1F4938;--soft:#E4E9E1}
+body{background:#4F1A23;color:#F5EBDD}
+header .brand,h1{color:#F5EBDD}
+header .tag{color:#F5EBDD;border-color:#B78C82;background:#ffffff0d}
+.sub,.note{color:#E7D7CE}
+.card{background:#F2E9DC;border:1px solid #D8C9B9;color:#29231F;box-shadow:0 8px 24px #260b1026}
+h2,.infoHeading,.learn h3{color:#625650}
+label,.hint{color:#625650}
+input,select{background:#1F4938;color:#FFFFFF;border:1px solid #426957;caret-color:#FFFFFF}
+input::placeholder{color:#D0BFC0;opacity:1}
+select option{background:#1F4938;color:#FFFFFF}
+input:focus,select:focus{border-color:#D6B779;box-shadow:0 0 0 3px #D6B77955}
+button,.button{background:#1F4938;color:#F5EBDD;border:1px solid #426957}
+button:hover{background:#285B46}
+button:focus-visible,summary:focus-visible{outline:3px solid #D6B779;outline-offset:3px}
+.result{background:#1F4938;color:#FFFFFF;border:1px solid #426957}
+.result .eyebrow,.unit,.stat small{color:#E1E9E2}
+.stat{background:#FFFFFF16}
+.result h3{color:#E1E9E2}
+.infoValue{background:#1F4938;color:#FFFFFF;border:1px solid #426957}
+.infoText{color:#29231F}
+.pill{background:#E4E9E1;color:#1F4938}
+details{border-color:#D8C9B9}
+summary{color:#29231F}
+summary:after{color:#1F4938}
+.learn p,.learn li{color:#29231F}
+.learn .callout{background:#E4E9E1;color:#263B30}
+.learn .formula{background:#1F4938;color:#FFFFFF}
+.error{color:#9B2638}
+footer{color:#E7D7CE}
+@media(prefers-reduced-motion:no-preference){button,input,select{transition:background-color .15s ease,border-color .15s ease,box-shadow .15s ease}}
+</style></head>
+<body><main>
+<header><div class="brand">FILTER / COFFEE</div><div class="tag">BARISTA TOOL Hq!coffee by S_c_o_u_t</div></header>
+<h1>Калькулятор<br>фильтр-кофе</h1><p class="sub">Подбор стартового рецепта по параметрам зерна и желаемому вкусу.</p>
+<section class="card"><h2>Зерно</h2>
+<div class="field"><label for="region">Страна / регион</label><select id="region"><option value="other">Другой / не указан</option><option value="ethiopia">Эфиопия</option><option value="kenya">Кения</option><option value="colombia">Колумбия</option><option value="brazil">Бразилия</option><option value="rwanda">Руанда</option><option value="costa-rica">Коста-Рика</option><option value="guatemala">Гватемала</option><option value="panama">Панама</option><option value="peru">Перу</option><option value="indonesia">Индонезия</option><option value="burundi">Бурунди</option><option value="el-salvador">Сальвадор</option><option value="honduras">Гондурас</option><option value="nicaragua">Никарагуа</option></select></div>
+<div class="field"><label for="farmer">Фермер / производитель</label><select id="farmer"><option value="unknown">Не указан / другой</option><option>Jairo Arcila</option><option>Felipe Arcila</option><option>Helena Salazar</option><option>Emmanuel Rusatira</option><option>Andres Salaverria</option><option>Emmanuel Rusatira</option><option>Kerchanshe</option><option>Rungeto Cooperative</option><option>Javier Quintero</option><option>Javier Castro</option><option>Mauricio Shatta</option><option>Kevenka Ijen</option><option>Martin Cache / Finca Eliza</option><option>Diophanor Ruiz / La Divisa</option><option>Aricha Washing Station</option><option>Karagoto Washing Station</option><option>Louis Nderimana</option><option>Другой производитель</option></select></div>
 <div class="grid">
-<div class="field"><label for="variety">Разновидность</label><input id="variety" placeholder="Bourbon, Caturra…"></div>
-<div class="field"><label for="process">Обработка</label><select id="process"><option value="">Не указана</option><option>Washed</option><option>Natural</option><option>Honey</option><option>Anaerobic</option><option>Double fermentation</option><option>Other</option></select></div>
+<div class="field"><label for="variety">Разновидность</label><select id="variety"><option value="unknown">Не указана</option><option>Bourbon</option><option>Typica</option><option>Caturra</option><option>Catuaí</option><option>Gesha / Geisha</option><option>SL28</option><option>SL34</option><option>Ruiru 11</option><option>Batian</option><option>Heirloom</option><option>Pink Bourbon</option><option>Castillo</option><option>Colombia</option><option>Pacamara</option><option>Maragogype</option><option>Java</option><option>Sidra</option><option>Другая разновидность / смесь</option><option>Red Bourbon</option><option>Yellow Bourbon</option><option>Orange Bourbon</option><option>Pacas</option><option>Villa Sarchi</option><option>Maracaturra</option><option>Laurina</option><option>Ombligon</option><option>Chiroso</option><option>Wush Wush</option><option>Rume Sudan</option><option>SL14</option><option>Parainema</option></select></div>
+<div class="field"><label for="process">Обработка</label><select id="process"><option value="washed">Washed / мытая</option><option value="natural">Natural / натуральная</option><option value="honey">Honey</option><option value="anaerobic">Анаэробная</option><option value="carbonic">Карбоническая мацерация</option><option value="thermal">Термическая обработка</option><option value="other">Другая / экспериментальная</option><option value="honey-red">Red Honey</option><option value="honey-yellow">Yellow Honey</option><option value="honey-black">Black Honey</option><option value="double-fermentation">Двойная ферментация</option><option value="extended-fermentation">Продлённая ферментация</option><option value="lactic">Лактическая ферментация</option><option value="koji">Koji</option><option value="thermal-shock">Термический шок</option><option value="infused">Инфьюз / co-ferment</option><option value="decaf">Декафеинизация</option></select></div>
+<div class="field"><label for="roastlevel">Степень обжарки</label><select id="roastlevel"><option value="light">Светлая</option><option value="medium-light" selected>Средне-светлая</option><option value="medium">Средняя</option><option value="medium-dark">Средне-тёмная</option></select></div>
 <div class="field"><label for="roast">Дата обжарки</label><input id="roast" type="date"></div>
-<div class="field"><label for="roastlevel">Обжарка</label><select id="roastlevel"><option>Средняя</option><option>Светлая</option><option>Средне-светлая</option><option>Средне-тёмная</option></select></div>
-</div>
+</div></section>
+<section class="card"><h2>Заваривание</h2><div class="grid">
+<div class="field"><label for="water">Объём воды</label><select id="water"></select></div>
+<div class="field"><label for="grinder">Кофемолка</label><select id="grinder"><option value="ditting">Ditting 807 Lab Sweet</option><option value="ek43s">Mahlkönig EK43S</option><option value="ek43st">Mahlkönig EK43ST</option></select></div>
+<div class="field"><label for="grind">Степень помола</label><select id="grind"></select></div>
+<div class="field"><label for="ratio">Пропорция, г/л</label><select id="ratio"></select></div>
+<div class="field"><label for="temp">Температура воды</label><select id="temp"></select></div>
+</div><div class="field"><label for="goal">Желаемый профиль</label><select id="goal"><option value="balanced">Сбалансированный</option><option value="sweet">Сладость и плотное тело</option><option value="clean">Чистота и яркость</option></select></div>
+<p class="hint">Все параметры выбираются из списков. После изменения любого значения рецепт пересчитывается автоматически.</p><button id="calculate" type="button">Пересчитать рецепт</button><div id="error" class="error" hidden></div></section>
+<section class="result" aria-live="polite"><div class="eyebrow">Стартовая дозировка</div><div class="dose" id="dose">100,8 <span class="unit">г кофе</span></div><div class="unit" id="ratioText">Соотношение 1:15,9</div>
+<div class="stats"><div class="stat"><small>Вода</small><strong id="waterOut">1600 мл</strong></div><div class="stat"><small>Кофемолка / помол</small><strong id="grindOut">Ditting 8</strong></div><div class="stat"><small>Температура</small><strong id="tempOut">93 °C</strong></div><div class="stat"><small>Возраст обжарки</small><strong id="ageOut">—</strong></div></div>
+<h3>Рекомендуемый рецепт</h3><p id="recipe"></p><h3>Почему такие параметры</h3><p id="logic"></p><h3>Рекомендация по завариванию</h3><p id="advice"></p><h3>Общие вкусовые ориентиры</h3><p id="descriptors"></p></section>
+<section class="card" id="guestPitchCard" aria-live="polite"><h2>Презентация кофе гостю</h2><h3 class="infoHeading">Как представить кофе гостю</h3><p class="infoText" id="guestPitchShort"></p><h3 class="infoHeading">Если гость хочет узнать подробнее</h3><p class="infoText" id="guestPitchLong"></p><h3 class="infoHeading">Вкусовые дескрипторы и ассоциации</h3><p class="infoText" id="sensoryDescriptors"></p><h3 class="infoHeading">Как бариста может объяснить эти оттенки</h3><p class="infoText" id="sensoryAssociations"></p><p class="hint">Это сенсорные ориентиры по разновидности и обработке, а не гарантированные ноты конкретной партии. Приоритет - каппинг и описание на упаковке.</p></section>
+<section class="card" id="originCard" aria-live="polite"><h2>Происхождение и вкусовой профиль</h2><div class="grid"><div class="field"><label>Фермер / производитель</label><div class="infoValue" id="farmerInfo">Не указан</div></div><div class="field"><label>Ферма / станция обработки</label><div class="infoValue" id="farmInfo">Нет подтверждённых данных</div></div><div class="field"><label>Регион / микрорегион</label><div class="infoValue" id="regionInfo">Не указан</div></div><div class="field"><label>Высота произрастания</label><div class="infoValue" id="altitudeInfo">Нет подтверждённых данных</div></div></div><h3 class="infoHeading">Особенности происхождения и терруар</h3><p class="infoText" id="terroirInfo"></p><h3 class="infoHeading">Климат, почвы и геология</h3><p class="infoText" id="geoInfo"></p><h3 class="infoHeading">Как параметры лота могут проявиться в чашке</h3><p class="infoText" id="cupInfo"></p><p class="hint" id="sourceInfo">Ферма, станция и высота указываются только при подтверждении карточкой конкретного лота.</p></section>
+<section class="card learn" id="brewGuide"><h2>База знаний · фильтр-кофе</h2>
+<details><summary>История фильтр-кофе</summary>
+<p>Ранние способы приготовления предполагали длительное настаивание или кипячение кофе. Постепенно появились устройства, в которых вода проходила через слой молотого кофе и отделялась от гущи.</p>
+<ul><li><b>1710, Франция:</b> тканевый мешочек с молотым кофе использовали как фильтр.</li><li><b>Около 1800 года:</b> архиепископ Жан-Батист де Беллуа связывается с ранним капельным устройством, где вода проходила через кофе один раз.</li><li><b>XIX век:</b> развивались переворачивающиеся кофеварки и перколяторы. В перколяторе вода могла многократно циркулировать через кофе, повышая риск чрезмерной экстракции.</li><li><b>1908 год:</b> Мелитта Бенц разработала бумажный фильтр и основала компанию Melitta.</li><li><b>1972 год:</b> на рынок вышла автоматическая капельная кофеварка Mr. Coffee.</li></ul>
+<p class="callout">Исторические даты и приоритеты отдельных изобретений в разных источниках могут различаться. Здесь сохранена хронология из учебного материала курса.</p></details>
+<details><summary>Три принципа заваривания</summary>
+<h3>Иммерсия</h3><p>Кофе всё время контакта находится в воде. Примеры: френч-пресс, чашка, турка. Вода и кофе контактируют в течение заданного времени; фильтрация или отделение гущи происходит в конце.</p>
+<h3>Пуровер</h3><p>Вода проходит через слой молотого кофе под действием силы тяжести. Примеры: V60, Chemex и автоматические капельные кофеварки. На результат влияют помол, фильтр, геометрия, скорость и распределение воды.</p>
+<h3>Давление</h3><p>Вода проходит через кофе под приложенным давлением. Примеры: AeroPress и эспрессо-машина. Гейзерная кофеварка использует давление пара, но её режим не равен эспрессо.</p>
+<p class="callout">Clever сочетает иммерсию и последующую фильтрацию: пока клапан закрыт, кофе настаивается; после открытия напиток проходит через фильтр.</p></details>
+<details><summary>Девайсы и геометрия заваривания</summary>
+<ul><li><b>Hario V60:</b> коническая воронка, тонкий фильтр и рёбра на стенках; обычно средний помол. Часто даёт чистую, лёгкую чашку, но профиль зависит от рецепта и зерна.</li><li><b>AeroPress:</b> компактная камера, бумажный или металлический фильтр и давление поршня; помол и время сильно варьируются. Бумажный фильтр задерживает часть масел и мелких частиц.</li><li><b>Chemex:</b> толстый бумажный фильтр и стеклянный корпус; обычно используют более крупный помол и получают чистую чашку с меньшим количеством масел и взвеси.</li><li><b>Batch brew:</b> автоматическое проливное заваривание больших объёмов. При корректной настройке обеспечивает повторяемость и производительность.</li></ul>
+<p>Изменение дозы, помола, объёма воды и формы девайса меняет глубину и геометрию кофейного слоя, сопротивление потоку и время контакта. Поэтому помол нельзя переносить между устройствами без калибровки.</p></details>
+<details><summary>Вода для кофе</summary>
+<p>Вода должна быть чистой, без постороннего запаха и вкуса. На экстракцию влияют растворённые минералы, прежде всего кальций, магний и гидрокарбонаты.</p>
+<ul><li><b>TDS воды:</b> суммарная концентрация растворённых веществ. В учебном материале курса ориентир SCA указан как 75–250 ppm, целевой диапазон - 100–150 ppm.</li><li><b>Общая жёсткость:</b> в основном связана с кальцием и магнием; влияет на взаимодействие воды с растворимыми компонентами кофе.</li><li><b>Карбонатная жёсткость / щёлочность:</b> связана с гидрокарбонатами и буферной способностью воды. Высокая щёлочность может приглушать воспринимаемую кислотность кофе.</li><li><b>pH:</b> показывает кислотно-щелочную реакцию, но сам по себе не описывает буферность и не является единственным критерием пригодности воды.</li><li><b>Хлор:</b> остаточный хлор и хлорамины могут давать посторонний запах и вкус; их желательно исключать.</li></ul>
+<p class="callout">Уточнение к конспекту: NaCl - это хлорид натрия, а не показатель «натрия» сам по себе. Нельзя считать любую воду с pH ниже 7 непригодной или любую воду выше 7 природной минеральной. Для выбора воды важны также щёлочность, жёсткость и состав минералов.</p></details>
+<details><summary>Строение кофейной ягоды и базовые обработки</summary>
+<p>Упрощённо от внешней части к центру: кожица, мякоть, клейковина (мусиля́ж), пергаментная оболочка (пачмент), серебристая кожица и зерно.</p>
+<h3>Natural / сухая</h3><p>Ягоды сушат целиком, вместе с мякотью, затем удаляют высохшие оболочки. Метод требует контроля сушки и обычно меньше воды на этапе обработки.</p>
+<h3>Washed / мытая</h3><p>После очистки ягоды депульпируют, затем удаляют остатки клейковины ферментацией и промывкой; зерно сушат в пачменте. Чистота и яркость часто ассоциируются с мытой обработкой, но не гарантируются ею.</p>
+<h3>Honey</h3><p>Кожицу и часть мякоти удаляют, а зерно сушат с частью клейковины. Названия yellow, red и black honey обычно описывают разные режимы остаточной клейковины и сушки; единого универсального стандарта цветовой градации нет.</p>
+<h3>Wet-hull / wet-hulled</h3><p>Региональная обработка, известная прежде всего в Индонезии: пачмент снимают при более высокой влажности зерна, чем при обычной мытой обработке, после чего зерно досушивают. Она отличается от полностью высушенного перед халлингом кофе.</p></details>
+<details><summary>Экспериментальная ферментация и infused</summary>
+<p>Экспериментальная ферментация - дополнительный этап обработки, который сочетается с базовой схемой: натуральной, мытой или honey. Анаэробная ферментация проходит при ограниченном доступе кислорода; конкретный результат зависит от сырья, микроорганизмов, температуры, времени и контроля процесса.</p>
+<p><b>Infused / co-fermented</b> - термины, которые используют для разных практик внесения фруктов, специй, дрожжей или других компонентов в процесс. Важно выяснять, на каком этапе и каким способом изменяли профиль. В учебном материале HQ! описан вариант ферментации на ферме с добавлением фруктов.</p>
+<p class="callout">Нельзя по одному слову «анаэробная» или «инфьюзд» точно предсказать вкус. Для этого нужна информация о конкретном лоте и каппинг.</p></details>
+<details><summary>Batch brew: стартовые ориентиры курса</summary>
+<ul><li><b>Washed:</b> стартовое brew ratio 1:16.</li><li><b>Natural:</b> стартовое brew ratio 1:17.</li><li><b>Объём воды:</b> в конспекте рекомендовано не превышать 1800 г на термос, с учётом геометрии и вместимости кофейного ковша.</li></ul>
+<p>Это исходные рекомендации конкретного курса и оборудования, а не универсальный стандарт для всех кофеварок. После выбора пропорции настрой помол по времени пролива и вкусу. Не допускай переполнения корзины и неравномерного слоя кофе.</p></details>
+<details><summary>TDS, экстракция и Brewing Control Chart</summary>
+<p><b>TDS напитка</b> - концентрация растворённых веществ в готовом кофе, обычно в процентах. Она связана с крепостью и телесностью, но не описывает вкус целиком.</p>
+<p><b>Extraction Yield (EY)</b> - доля массы сухого кофе, перешедшая в напиток. Для расчёта нужен рефрактометр, который измеряет TDS напитка.</p>
+<span class="formula">EY (%) = TDS напитка (%) × масса напитка (г) ÷ доза кофе (г)</span>
+<p>Рефрактометр измеряет преломление света в образце и по калибровке оценивает концентрацию растворённых веществ. Для корректного измерения образец нужно перемешать, охладить до требований прибора и при необходимости профильтровать от частиц.</p>
+<p>В Brewing Control Chart горизонтальная ось обычно отражает экстракцию, вертикальная - крепость (TDS). Brew ratio задаёт диагональные линии. Низкий EY часто воспринимается как недоразвитый, резкий или кислый вкус; чрезмерный EY может сопровождаться горечью и сухостью. Но сенсорная оценка важнее положения на графике.</p>
+<p class="callout">Для batch brew кофеварка ограничивает управление температурой и турбулентностью. Поэтому на практике особенно важны доза, помол, равномерность распределения воды, объём и время пролива. Меняй по одному параметру и пробуй результат.</p></details>
+<details><summary>Как корректировать рецепт: три T</summary>
+<ul><li><b>Time - время:</b> меняется в том числе через размер помола и гидравлическое сопротивление слоя.</li><li><b>Temperature - температура:</b> более высокая температура обычно ускоряет растворение многих компонентов, но эффект зависит от кофе и оборудования.</li><li><b>Turbulence - турбулентность:</b> интенсивность и распределение движения воды влияют на смачивание и массоперенос.</li></ul>
+<p>Если чашка недоразвита, проверь равномерность смачивания, слишком крупный помол, короткое время и температуру. Если чашка сухая и чрезмерно горькая, проверь слишком мелкий помол, длительный контакт и неравномерную экстракцию. Корректируй постепенно.</p>
+<p class="callout">Важно: направление движения по Brewing Control Chart нельзя свести к правилу «слева - увеличить любую T». TDS/EY и вкус нужно рассматривать вместе; соотношение кофе и воды прежде всего меняет концентрацию, а помол и время часто сильнее влияют на EY.</p></details>
+<p class="hint">Учебный раздел составлен по материалам курса, переданным пользователем. Там, где формулировки курса упрощены или спорны, добавлены уточнения. Практические рекомендации зависят от конкретной кофеварки, воды, зерна и калибровки.</p>
 </section>
-
-<section class="card">
-<h2>Заваривание</h2>
-<div class="grid">
-<div class="field"><label for="water">Вода, мл</label><input id="water" type="number" min="1" step="1" value="1600"></div>
-<div class="field"><label for="grind">Помол Ditting</label><input id="grind" type="number" min="0" step="0.1" value="8"></div>
-<div class="field"><label for="ratio">Пропорция, г/л</label><input id="ratio" type="number" min="1" max="100" step="0.5" value="63"></div>
-<div class="field"><label for="temp">Температура, °C</label><input id="temp" type="number" min="70" max="100" step="0.5" value="93"></div>
-</div>
-<div class="field"><label for="goal">Желаемый профиль</label><select id="goal"><option value="balanced">Сбалансированный</option><option value="sweet">Больше сладости и тела</option><option value="clean">Чистота и яркость</option></select></div>
-<button id="calculate" type="button">Рассчитать рецепт</button>
-<div id="error" class="error hidden" role="alert"></div>
-</section>
-
-<section id="output" class="result" aria-live="polite">
-<div class="eyebrow">Стартовая дозировка</div>
-<div class="dose" id="dose">100.8 <span class="unit">г кофе</span></div>
-<div class="unit" id="ratioText">Соотношение 1:15.9</div>
-<div class="stats">
-<div class="stat"><small>Вода</small><strong id="waterOut">1600 мл</strong></div>
-<div class="stat"><small>Ditting</small><strong id="grindOut">8</strong></div>
-<div class="stat"><small>Температура</small><strong id="tempOut">93 °C</strong></div>
-<div class="stat"><small>Возраст обжарки</small><strong id="ageOut">—</strong></div>
-</div>
-<h3>Стартовая настройка</h3><p id="advice">Начни с рассчитанной дозировки. Оцени чашку и корректируй помол небольшими шагами.</p>
-<h3>Дескрипторы</h3><p id="descriptors">Укажи регион, чтобы увидеть общие вкусовые ориентиры. Это не предсказание вкуса конкретного лота.</p>
-</section>
-<p class="note">Важно: региональные дескрипторы - только общие ориентиры. Реальный профиль зависит от конкретного лота, разновидности, обработки, ферментации, обжарки и заваривания. Помол Ditting не переводится в универсальную экстракцию без калибровки конкретной кофемолки.</p>
-<footer>FILTER / COFFEE · локальный калькулятор</footer>
+<p class="note">Это стартовая рекомендация, а не точное предсказание экстракции. Регион и разновидность сами по себе не определяют вкус конкретного лота. Калибруй рецепт по вкусу, времени пролива и равномерности экстракции; шкала Ditting зависит от модели и настройки кофемолки.</p><footer>FILTER / COFFEE · локальный калькулятор</footer>
 </main>
 <script>
-const profiles = [
-  [/эфиоп/i, "Цветочные ноты, цитрус, бергамот, косточковые фрукты"],
-  [/кени/i, "Чёрная смородина, красные ягоды, цитрусовые"],
-  [/колумб/i, "Разнообразный профиль: карамель, фрукты, цитрусовые или шоколад"],
-  [/бразил/i, "Шоколад, орехи, карамель, сухофрукты"],
-  [/руанд/i, "Красные ягоды, яблоко, цитрусовые, чайные ноты"],
-  [/коста.?рик/i, "Цитрусовые, яблоко, карамель, тропические фрукты"],
-  [/гватемал/i, "Шоколад, орехи, яблоко, специи"],
-  [/панам/i, "Цветочные ноты, цитрус, персик, тропические фрукты"],
-  [/перу/i, "Орехи, карамель, яблоко, шоколад"],
-  [/индонез/i, "Специи, тёмный шоколад, древесные ноты"]
-];
-const $ = id => document.getElementById(id);
+const $=id=>document.getElementById(id);
+function fillSelect(id,values,selected){const s=$(id);values.forEach(v=>{const o=document.createElement('option');o.value=String(v);o.textContent=String(v).replace('.',',');if(String(v)===String(selected))o.selected=true;s.appendChild(o);});}
+const grinderRanges={ditting:{name:'Ditting 807 Lab Sweet',min:7.5,max:9,step:0.1,default:8},ek43s:{name:'Mahlkönig EK43S',min:10,max:12,step:0.1,default:11},ek43st:{name:'Mahlkönig EK43ST',min:10,max:12,step:0.1,default:11}};
+function updateGrindOptions(preferred){const cfg=grinderRanges[$('grinder').value];const values=[];for(let v=cfg.min;v<=cfg.max+0.001;v+=cfg.step)values.push(+v.toFixed(1));const current=preferred!==undefined?Number(preferred):Number($('grind').value);$('grind').innerHTML='';const selected=values.includes(current)?current:cfg.default;fillSelect('grind',values,selected);}
+updateGrindOptions(8);
+fillSelect('water',Array.from({length:21},(_,i)=>1000+i*50),1600);
+fillSelect('ratio',Array.from({length:25},(_,i)=>+(55+i*.5).toFixed(1)),63);
+fillSelect('temp',Array.from({length:16},(_,i)=>85+i),93);
+const originNotes={ethiopia:'Часто встречаются цветочные, цитрусовые и чайные оттенки.',kenya:'Часто встречаются ягодная кислотность, чёрная смородина и цитрусы.',colombia:'Профили сильно различаются: от карамели и шоколада до фруктов и цитрусов.',brazil:'Часто встречаются орехи, шоколад, карамель и мягкая кислотность.',rwanda:'Возможны ноты красных ягод, яблока, цитрусов и чая.', 'costa-rica':'Возможны цитрусы, яблоко, карамель и тропические фрукты.',guatemala:'Часто встречаются шоколад, орехи, яблоко и специи.',panama:'Возможны цветочные, цитрусовые и тропические фруктовые ноты.',peru:'Часто встречаются орехи, карамель, яблоко и шоколад.',indonesia:'Возможны пряные, древесные и шоколадные оттенки.',burundi:'Возможны красные ягоды, цитрусы и чайные ноты.','el-salvador':'Возможны шоколад, сладкие фрукты и карамель.',honduras:'Часто встречаются карамель, орехи, цитрусы и фрукты.',nicaragua:'Возможны шоколад, карамель, яблоко и орехи.',other:'Для выбранного происхождения нет общего ориентира.'};
+const processNotes={washed:'Мытая обработка обычно подчёркивает чистоту и читаемость кислотности.',natural:'Натуральная обработка часто добавляет фруктовую насыщенность и тело.',honey:'Honey часто даёт компромисс между чистотой мытой и фруктовой насыщенностью натуральной обработки.',anaerobic:'Анаэробная ферментация может усиливать интенсивность и необычные ферментационные ноты.',carbonic:'Карбоническая мацерация может давать выраженный ферментационный характер.',thermal:'Термические эксперименты могут заметно менять аромат; ориентируйся прежде всего на каппинг.',other:'Экспериментальная обработка требует настройки по вкусу конкретного лота.','honey-red':'Red Honey: часть слизистого слоя остаётся при сушке; возможны сладость и фруктовые оттенки.','honey-yellow':'Yellow Honey: профиль зависит от количества оставшегося слизистого слоя и режима сушки.','honey-black':'Black Honey: обычно оставляют больше слизистого слоя; возможны более выраженные сладость и тело.','double-fermentation':'Двойная ферментация: результат зависит от последовательности этапов, времени и контроля температуры.','extended-fermentation':'Продлённая ферментация может усилить ферментационные оттенки, но не гарантирует определённые ноты.','lactic':'Лактическая ферментация может давать ассоциации с йогуртовой кислотностью; проверяй это в чашке.','koji':'Koji: эффект зависит от протокола обработки и конкретного лота.','thermal-shock':'Термический шок - технологический этап; сам по себе не задаёт вкусовой профиль.','infused':'Инфьюз / co-ferment может менять ароматический профиль; проверяй описание и маркировку лота.','decaf':'Декафеинизация может влиять на аромат и экстракцию; настройку подбирай по проливу.'};
+const producerCatalog={
+"Jairo Arcila":{region:"Киндио, Колумбия",farm:"Santa Monica",altitude:"Не указана в предоставленном материале",detail:"Ферма принадлежит Хайро Арсиле; семейная фермерская история в третьем поколении. HQ! перечисляет лоты Blackberry, Cardamon, Passion Fruit, Ice Fermentation, Helena Salazar Omni Roast, Peach и 200h."},
+"Felipe Arcila":{region:"Колумбия; точный регион не указан",farm:"Ферма/станция для конкретного лота не указана",altitude:"Не указана",detail:"Сооснователь Cofinet вместе с братом Карлосом. Известен экспериментальными обработками, в том числе инфьюзами с фруктами и ягодами. Лоты в библиотеке HQ!: Colombia Felipe Arcila Rum Aged и Colombia Marageisha."},
+"Andres Salaverria":{region:"Апанека, Сальвадор",farm:"Фермы семьи вокруг старой мельницы",altitude:"Не указана",detail:"Фермер в четвёртом поколении. Работает над повышением качества кофе совместно с экспортёром Mare Terra. Лоты: San Francisco Ethiopian Heirloom, Bourbon и Laurina."},
+"Emmanuel Rusatira":{region:"Руанда; конкретная станция зависит от лота",farm:"Baho Coffee; сеть из 12 станций мытой обработки",altitude:"Не указана",detail:"Основал Baho Coffee в 2016 году. Компания контролирует качество обработки и сотрудничает с местными фермерами. Лот HQ!: Rwanda Matyazo."},
+"Kerchanshe":{region:"Иргачеффе, Эфиопия (для лота Ethiopia Kore)",farm:"Станция Kore",altitude:"Не указана",detail:"Компания объединяет около 56 000 мелких фермеров и владеет несколькими станциями обработки. HQ! указывает станцию Kore в регионе Иргачеффе. Лот: Ethiopia Kore."},
+"Rungeto Cooperative":{region:"Кириньяга, Кения",farm:"Кооператив Rungeto; станции Kii, Karimikui и Kiangoi",altitude:"Не указана",detail:"Объединяет более 800 фермеров. HQ! описывает ручную сортировку и депульпацию; в чашке могут встречаться вишня, красная слива и крыжовник. Лоты: Kenya Kii AA и Kenya Karimikui AA."},
+"Javier Quintero":{region:"Каука, Колумбия",farm:"Ферма не названа в предоставленном материале",altitude:"Не указана",detail:"Фермер выращивает редкую разновидность, названную в материале «бурбон арузи», на склонах Анд. Лот: Colombia Javier Cuentiro. Написание имени и названия разновидности стоит сверить с карточкой товара."},
+"Javier Castro":{region:"Северо-запад Эквадора",farm:"La Joya",altitude:"Не указана",detail:"На ферме выращивают Sidra. Для отбора ягод используется флотация: незрелые и повреждённые ягоды всплывают. Лот: Ecuador Javier Castro."},
+"Mauricio Shatta":{region:"Колумбия; точный регион в материале не указан",farm:"Finca La Negrita",altitude:"Не указана",detail:"Бывший врач-онколог; вместе с женой приобрёл ферму в 2012 году. На ферме описаны восемь природных источников воды, V-образный каньон и контроль удобрений по анализам почвы и воды. Лот: Colombia Finca La Negrita Pink Bourbon."},
+"Kevenka Ijen":{region:"Индонезия, район вулкана Иджен",farm:"Станция обработки Kevenka Ijen",altitude:"Точная высота не указана",detail:"Станция расположена у подножия действующего вулкана Иджен. HQ! описывает вулканические почвы и полуанаэробную обработку; ягоды закупаются у небольших фермеров поблизости. Лот: Indonesia Java Ilen."},
+"Martin Cache / Finca Eliza":{region:"Юг Эквадора",farm:"Finca Eliza",altitude:"Не указана",detail:"Небольшая ферма Мартина Каче и его дочерей, связанная с компанией ChocoVilcaMundo. В материале указаны разновидности Geisha, Bourbon Sidra и Typica. Лот: Ecuador Finca Eliza Geisha."},
+"Diophanor Ruiz / La Divisa":{region:"Киндио, Колумбия",farm:"La Divisa",altitude:"1950 м",detail:"Владелец фермы с опытом работы с кофе более 40 лет; сотрудничает с Cofinet. Разновидность Caturón описана как новая и пока не имеющая установленного генетического происхождения. Лот: Colombia La Divisa."},
+"Aricha Washing Station":{region:"Иргачеффе, Эфиопия",farm:"Станция обработки Aricha",altitude:"Высокогорный регион; точное значение не указано",detail:"Станция обслуживает около 650 фермеров. HQ! связывает качество кофе с высокогорьем и плодородными почвами, обогащёнными органическим веществом. Лот: Ethiopia Aricha Natural."},
+"Karagoto Washing Station":{region:"Ньери, Кения",farm:"Станция обработки Karagoto",altitude:"Не указана",detail:"Станция работает с несколькими сотнями фермеров; основные разновидности - SL-28 и SL-34. Лот: Kenya Karagoto AA."},
+"Helena Salazar":{region:"Колумбия; точный регион зависит от лота",farm:"Не подтверждена для выбранного лота",altitude:"Не указана",detail:"В предоставленном списке Helena Salazar упоминается в названии лота Jairo Arcila Helena Salazar Omni Roast; самостоятельная ферма или производственная роль не уточнена."},
+"Louis Nderimana":{region:"Не подтверждён предоставленным материалом",farm:"Не подтверждена",altitude:"Не указана",detail:"В предоставленном материале HQ! сведения о производителе отсутствуют."}
+};
+const geoNotes={ethiopia:"Для Эфиопии в материале HQ! отмечены высокогорные зоны и плодородные почвы с органическим веществом (например, Aricha). Геологический состав конкретного участка не указан.",kenya:"Для Rungeto HQ! указывает Кириньягу, кооперативную модель и станции обработки. Данные о вулканической породе, составе почвы и климате конкретного участка не приведены.",colombia:"Колумбийские лоты из материала происходят из разных зон - Киндио и Каука. Анды формируют сложный рельеф и высотные микроклиматы, но высота и почвы конкретного лота должны подтверждаться отдельно.",indonesia:"Для станции Kevenka Ijen HQ! прямо указывает расположение у действующего вулкана Иджен и вулканические почвы. Это характеристика района станции, а не доказательство конкретного минерального влияния на вкус каждой чашки.",rwanda:"Для Baho Coffee указана сеть станций мытой обработки по стране. Климат, высота и геология станции Matyazo в предоставленном тексте не уточнены.","el-salvador":"Для ферм Андреса Салаверрии указан регион Апанека. Подробные данные о почвах, климате и высоте конкретных участков не приведены.",other:"Нет достаточных данных о геологии, климате и почвах конкретного происхождения. Не следует приписывать лоту свойства региона без подтверждения."};
+const varietyNotes={"Gesha / Geisha":"Гейшу часто описывают через цветочные, цитрусовые и чайные оттенки; это не гарантия для конкретного лота.","SL28":"SL28 часто ассоциируют с яркой фруктовой кислотностью и ягодными оттенками.","SL34":"SL34 может давать сладкий фруктовый профиль; результат зависит от терруара и обработки.","Bourbon":"Бурбон часто ассоциируют со сладостью, округлым телом и фруктово-карамельными оттенками.","Pink Bourbon":"Название Pink Bourbon не гарантирует конкретные ноты; ориентируйся на каппинг лота.","Heirloom":"Heirloom - собирательное обозначение местных разновидностей Эфиопии, а не одна разновидность."};
+const sensoryVarietyProfiles={
+ 'Gesha / Geisha':{notes:'белые цветы, жасмин, бергамот, цитрусовая цедра, иногда персик или абрикос',feel:'изящный, чайный, ароматный профиль'},
+ 'SL28':{notes:'чёрная смородина, красные ягоды, цитрусовая кислотность; иногда томатный лист как ароматическая ассоциация',feel:'сочная, выразительная кислотность и сочная фруктовость'},
+ 'SL34':{notes:'красные фрукты, косточковые плоды, цитрус, карамельная сладость',feel:'сладкий фруктовый профиль с заметной структурой'},
+ 'Bourbon':{notes:'красное яблоко, карамель, молочный шоколад, цитрус или красные ягоды',feel:'округлая сладость, сбалансированная кислотность и среднее тело'},
+ 'Red Bourbon':{notes:'красное яблоко, карамель, красные ягоды, мягкий цитрус',feel:'сладкий и округлый профиль'},
+ 'Yellow Bourbon':{notes:'жёлтые фрукты, яблоко, мёд, карамель, мягкие цитрусы',feel:'мягкая фруктовая сладость'},
+ 'Orange Bourbon':{notes:'апельсиновая цедра, абрикос, карамель, жёлтые фрукты',feel:'цитрусово-фруктовый профиль'},
+ 'Pink Bourbon':{notes:'цветочные оттенки, цитрус, персик и тропические фрукты могут встречаться в каппинге отдельных лотов',feel:'потенциально яркий ароматный профиль; название разновидности не гарантирует эти ноты'},
+ 'Sidra':{notes:'цветы, бергамот, цитрус, персик и другие косточковые фрукты',feel:'ароматный, сочный, с деликатной кислотностью'},
+ 'Laurina':{notes:'цветы, цитрусовый чай, сладкие специи, иногда красные фрукты',feel:'деликатный и часто мягкий по восприятию профиль'},
+ 'Heirloom':{notes:'цветы, лимон, бергамот, чай, персик или абрикос - в зависимости от местной разновидности и лота',feel:'разнообразный эфиопский профиль; Heirloom не обозначает одну генетическую разновидность'},
+ 'Typica':{notes:'цветочный аромат, яблоко, цитрус, карамель и мягкие ореховые оттенки',feel:'чистый, сбалансированный профиль'},
+ 'SL14':{notes:'цитрусы, яблоко, чайные и карамельные оттенки могут встречаться в чашке',feel:'сбалансированный фруктово-сладкий профиль'},
+ 'Pacamara':{notes:'косточковые фрукты, цитрус, шоколад, специи; иногда выраженная винная фруктовость',feel:'объёмная чашка с заметной текстурой'},
+ 'Maragogype':{notes:'цитрус, цветы, орехи и мягкая сладость',feel:'часто деликатный профиль, но сильно зависит от обработки и обжарки'}
+};
+const sensoryProcessProfiles={
+ washed:{notes:'чистый цитрус, яблоко, цветочные или чайные оттенки',feel:'более прозрачное восприятие структуры и кислотности'},
+ natural:{notes:'спелые ягоды, клубника, вишня, сухофрукты; иногда джемовые оттенки',feel:'более выраженная фруктовость и округлое тело'},
+ honey:{notes:'мёд, карамель, жёлтые фрукты, красное яблоко',feel:'сладкое, округлое впечатление; фактический эффект зависит от режима сушки'},
+ anaerobic:{notes:'интенсивные фрукты, ферментированная ягода, виноград, специи; иногда йогуртовые или винные ассоциации',feel:'более заметная ферментационная выразительность, но она не обязательна'},
+ carbonic:{notes:'яркие фруктовые, виноградные и цветочные ассоциации могут проявляться при удачном контроле процесса',feel:'ароматный и иногда виноподобный характер'},
+ 'honey-red':{notes:'красные ягоды, карамель, спелое яблоко',feel:'сладость и фруктовая округлость'},
+ 'honey-yellow':{notes:'мёд, жёлтое яблоко, абрикос, цитрус',feel:'мягкая фруктовая сладость'},
+ 'honey-black':{notes:'сухофрукты, тёмная карамель, спелые ягоды',feel:'потенциально более насыщенное и плотное впечатление'},
+ 'double-fermentation':{notes:'спелые фрукты, ягоды, иногда винные или пряные оттенки',feel:'выразительная ферментационная ароматика'},
+ 'extended-fermentation':{notes:'фруктовая зрелость, ягоды, специи; характер зависит от времени и контроля ферментации',feel:'более интенсивный ароматический профиль'},
+ lactic:{notes:'йогурт, сливочная текстура, цитрус и спелые фрукты как возможные ассоциации',feel:'мягкое, округлое восприятие кислотности'},
+ koji:{notes:'сладкие фрукты, цветы, иногда рисовые или ферментированные ассоциации',feel:'необычный профиль, который нельзя надёжно предсказать только по названию метода'},
+ infused:{notes:'добавленные фрукты или специи могут давать узнаваемые фруктовые и пряные оттенки',feel:'важно отличать аромат, возникший в ферментации, от внесённых ароматических компонентов'}
+};
+function renderSensoryProfile(region,variety,process,farmer){
+ const v=sensoryVarietyProfiles[variety];const pr=sensoryProcessProfiles[process];
+ let notes=v?v.notes:'Для выбранной разновидности нет достаточно надёжного общего дескрипторного профиля. Сверься с каппингом конкретной партии.';
+ let feel=v?v.feel:'Не стоит приписывать лоту характер только по названию разновидности.';
+ if(farmer==='Rungeto Cooperative'&&(variety==='SL28'||variety==='SL34'||region==='kenya')){
+  notes='вишня, красная слива и крыжовник - вкусовые ориентиры, указанные в предоставленном описании кофе кооператива Rungeto';
+  feel='сочная ягодно-фруктовая чашка с яркой кислотностью, средней сладостью и невысокой горечью - согласно описанию, переданному для этого производителя';
+ }
+ const processNotesText=pr?`Для обработки «${$('process').selectedOptions[0]?.textContent||process}» возможны ассоциации: ${pr.notes}.`:'Для этого способа обработки нет отдельного надёжного дескрипторного ориентира в текущей базе.';
+ $('sensoryDescriptors').textContent=`По разновидности ${variety==='unknown'?'(не указана)':variety}: ${notes}. ${processNotesText}`;
+ const analogies=[];
+ if(v)analogies.push(`Когда говорим «${v.notes.split(',').slice(0,2).join(' и ')}», можно предложить гостю вспомнить аромат свежего фрукта, цедры или цветочного чая - не сладость сиропа, а именно аромат и характер кислотности.`);
+ if(pr)analogies.push(`Обработка может добавить ${pr.feel}. Это скорее направление восприятия, чем обещание конкретного вкуса.`);
+ analogies.push('На дегустации удобно разделить впечатление на три части: аромат (что напоминает запах), кислотность (на какой фрукт похожа по ощущению) и послевкусие (что остаётся после глотка - чайность, сладость, специи или сухость).');
+ $('sensoryAssociations').textContent=analogies.join(' ');
+}
+function renderOriginInfo(region,farmer,variety,process){const p=producerCatalog[farmer];$('farmerInfo').textContent=farmer&&farmer!=='unknown'&&farmer!=='Другой производитель'?farmer:'Не указан для выбранного лота';$('farmInfo').textContent=p?p.farm:'Нет подтверждённых данных для выбранного лота';$('regionInfo').textContent=p?p.region:($('region').selectedOptions[0]?.textContent||'Не указан');$('altitudeInfo').textContent=p?p.altitude:'Нет подтверждённых данных';$('terroirInfo').textContent=p?p.detail:'Для выбранного происхождения нет подтверждённого описания фермы или станции.';$('geoInfo').textContent=geoNotes[region]||geoNotes.other;const v=varietyNotes[variety]||(variety==='unknown'?'Разновидность не указана - отдельный прогноз по ней невозможен.':`Для ${variety} нельзя надёжно предсказать вкус только по названию.`);$('cupInfo').textContent=`${v} ${processNotes[process]||'Обработка не указана.'} Итог зависит также от зрелости ягод, ферментации, сушки, хранения, обжарки, воды и экстракции.`;
+ const regionLabel=$('region').selectedOptions[0]?.textContent||'регион не указан';const varietyLabel=variety==='unknown'?'неизвестная разновидность':variety;const processLabel=$('process').selectedOptions[0]?.textContent||'способ обработки не указан';const producerLabel=(farmer&&farmer!=='unknown'&&farmer!=='Другой производитель')?farmer:'';
+ const processTalk={washed:'Мытая обработка помогает раскрыть характер самого зерна и обычно делает чашку более чистой и структурной.',natural:'При натуральной обработке ягода сушится целиком, поэтому у такого кофе нередко появляется более заметная фруктовая выразительность и округлое тело.',honey:'При honey-обработке часть мякоти остаётся на зерне во время сушки. Это может добавить чашке сладости и объёма, сохраняя читаемость вкуса.',anaerobic:'Анаэробная ферментация проходит в среде с ограниченным доступом кислорода. Она позволяет производителю точнее управлять ферментацией и может придать профилю дополнительную выразительность.',carbonic:'Карбоническая мацерация - контролируемый ферментационный этап; его влияние лучше всего оценивать по конкретному лоту и чашке.',other:'Здесь важен именно протокол конкретной обработки: он может заметно повлиять на аромат, текстуру и общее впечатление от чашки.'};
+ const processKey=process;const processDescription=processTalk[processKey]||processNotes[processKey]||'Способ обработки влияет на то, как зерно раскрывается после обжарки.';
+ const originSentence=region!=='other'?`из региона ${regionLabel}`:'с происхождением, указанным в карточке лота';
+ const shortText=`Сегодня в фильтре - кофе ${originSentence}${producerLabel?`, от производителя ${producerLabel}`:''}. Это ${varietyLabel==='неизвестная разновидность'?'лот с разновидностью, которую стоит уточнить по упаковке':`разновидность ${varietyLabel}`} с обработкой «${processLabel}». Мы приготовили его методом фильтра, чтобы дать чашке раскрыться постепенно: сначала почувствовать аромат, затем оценить сладость, кислотность и то, каким остаётся послевкусие. Попробуйте его сначала без сахара и молока - так лучше заметен собственный характер зерна.`;
+ $('guestPitchShort').textContent=shortText;
+ const longText=[`Перед вами фильтр-кофе ${originSentence}${producerLabel?`, произведённый ${producerLabel}`:''}.`,`В основе лота - ${varietyLabel}; после сбора кофе прошёл обработку «${processLabel}».`,processDescription, p&&p.detail?`По производителю: ${p.detail}`:'Подробности о ферме, станции и высоте стоит уточнять по маркировке именно этой партии - не каждый параметр можно достоверно определить только по стране происхождения.',`В фильтре мы раскрываем зерно более деликатно, чем в эспрессо: напиток получается чистым и позволяет последовательно почувствовать разные стороны профиля по мере остывания.`,`Я бы предложил не торопиться: сначала оценить аромат горячей чашки, затем сладость и характер кислотности, а в конце - послевкусие и текстуру. Если захотите, можем вместе разобрать, какие оттенки проявляются именно в этой заваренной чашке.`].join(' ');
+ $('guestPitchLong').textContent=longText;renderSensoryProfile(region,variety,process,farmer);$('sourceInfo').textContent='Сенсорные ориентиры по разновидности и обработке - вероятные ассоциации, а не подтверждённые ноты конкретного лота. Для презентации точных нот используй каппинг или официальное описание партии.';}
 function calculate(){
-  const water = Number($("water").value), grind = Number($("grind").value);
-  const ratio = Number($("ratio").value), temp = Number($("temp").value);
-  const error = $("error"); error.classList.add("hidden"); error.textContent = "";
-  if (![water,grind,ratio,temp].every(Number.isFinite) || water<=0 || grind<0 || ratio<=0 || temp<70 || temp>100){
-    error.textContent = "Проверь значения: вода и пропорция должны быть больше нуля, температура - от 70 до 100 °C, помол - неотрицательное число.";
-    error.classList.remove("hidden"); return;
-  }
-  const coffee = water / 1000 * ratio;
-  $("dose").innerHTML = `${coffee.toFixed(1)} <span class="unit">г кофе</span>`;
-  $("ratioText").textContent = `Соотношение 1:${(water/coffee).toFixed(1)}`;
-  $("waterOut").textContent = `${water.toLocaleString("ru-RU")} мл`;
-  $("grindOut").textContent = String(grind).replace(".", ",");
-  $("tempOut").textContent = `${temp} °C`;
-  const roast = $("roast").value;
-  if (roast){
-    const days = Math.floor((new Date().setHours(0,0,0,0)-new Date(roast+"T00:00:00").getTime())/86400000);
-    $("ageOut").textContent = days < 0 ? "Дата в будущем" : `${days} дн.`;
-  } else $("ageOut").textContent = "Не указана";
-  const goal = $("goal").value;
-  let advice = "Начни с этой дозировки. Если чашка пустая и водянистая - проверь помол и равномерность пролива; если сухая и чрезмерно горькая - попробуй чуть крупнее помол.";
-  if(goal==="sweet") advice = "Для более плотной и сладкой чашки начни с пропорции 65 г/л, затем оцени результат. При сухости или горечи попробуй чуть крупнее помол.";
-  if(goal==="clean") advice = "Для более чистой и лёгкой чашки начни с пропорции 60 г/л. При резкой/пустой чашке корректируй помол и технику пролива.";
-  $("advice").textContent = advice;
-  const region = $("region").value.trim();
-  const match = profiles.find(([re])=>re.test(region));
-  let desc = match ? match[1] : "Для этого региона нет общего справочного ориентира.";
-  if($("process").value) desc += ` Обработка: ${$("process").value}. Она может заметно влиять на аромат и текстуру, но сама по себе не позволяет точно предсказать дескрипторы.`;
-  if($("variety").value.trim()) desc += ` Разновидность: ${$("variety").value.trim()}.`;
-  $("descriptors").textContent = desc + " Сверяй с каппингом и описанием обжарщика.";
+ const water=Number($('water').value),ratio=Number($('ratio').value),grind=Number($('grind').value),grinder=$('grinder').value,grinderCfg=grinderRanges[grinder],temp=Number($('temp').value),roast=$('roast').value,level=$('roastlevel').value,process=$('process').value,goal=$('goal').value,region=$('region').value,variety=$('variety').value,farmer=$('farmer').value;
+
+ let ageText='Не указана',ageDays=null;if(roast){const parsed=new Date(roast+'T00:00:00');if(!Number.isNaN(parsed.getTime())){ageDays=Math.floor((new Date(new Date().toDateString()).getTime()-parsed.getTime())/86400000);ageText=ageDays<0?'Дата в будущем':ageDays+' дн.';}else{ageText='Некорректная дата';}} $('ageOut').textContent=ageText;
+ // Базовая модель стартового рецепта. Это эвристика для настройки, а не измерение экстракции.
+ let ratioDelta=0, tempDelta=0, grindDelta=0;
+ const varietyText=variety.toLowerCase();
+ if(goal==='sweet'){ratioDelta+=1.5;grindDelta-=0.5;}
+ if(goal==='clean'){ratioDelta-=1.5;grindDelta+=0.5;tempDelta-=1;}
+ if(level==='light'){ratioDelta+=1;tempDelta+=2;grindDelta-=0.5;}
+ if(level==='medium'){tempDelta+=0;}
+ if(level==='medium-dark'){ratioDelta-=1;tempDelta-=2;grindDelta+=0.5;}
+ if(process==='natural'){ratioDelta-=0.5;grindDelta+=0.5;}
+ if(process==='honey'){ratioDelta+=0.25;}
+ if(process==='anaerobic'){ratioDelta-=0.75;tempDelta-=1;grindDelta+=0.5;}
+ if(process==='carbonic'){ratioDelta-=0.5;tempDelta-=1;grindDelta+=0.5;}
+ if(process==='thermal'){ratioDelta-=0.75;tempDelta-=2;grindDelta+=0.5;}
+ if(process==='other'){ratioDelta-=0.25;tempDelta-=1;}
+ if(['honey-red','honey-yellow','honey-black'].includes(process)){ratioDelta+=0.25;}
+ if(['double-fermentation','extended-fermentation','lactic','koji','thermal-shock','infused'].includes(process)){ratioDelta-=0.5;tempDelta-=1;grindDelta+=0.25;}
+ if(process==='decaf'){tempDelta-=1;grindDelta+=0.25;}
+ if(region==='ethiopia'||region==='kenya'||region==='panama'){tempDelta+=0.5;grindDelta-=0.25;}
+ if(region==='brazil'||region==='indonesia'){ratioDelta-=0.25;tempDelta-=0.5;}
+ if(varietyText.includes('gesha')||varietyText.includes('geisha')||varietyText.includes('sidra')){ratioDelta-=0.25;tempDelta-=0.5;}
+ if(varietyText.includes('robusta')){ratioDelta-=1;tempDelta-=1;}
+ // Имя фермера само по себе не меняет рецепт без измеримых характеристик конкретного лота.
+ // Возраст влияет осторожно: по мере дегазации рецепт можно начать немного тоньше/горячее.
+ if(ageDays!==null&&ageDays>=0){if(ageDays<5){grindDelta+=0.5;tempDelta-=0.5;}else if(ageDays>45){grindDelta-=0.5;tempDelta+=0.5;}}
+ const suggestedRatio=Math.max(50,Math.min(75,ratio+ratioDelta));
+ const suggestedTemp=Math.max(85,Math.min(100,Math.round(temp+tempDelta)));
+ const suggestedGrind=Math.max(grinderCfg.min,Math.min(grinderCfg.max,Math.round((grind+grindDelta)*10)/10));
+ const coffee=water/1000*suggestedRatio;
+ $('dose').innerHTML=coffee.toLocaleString('ru-RU',{minimumFractionDigits:1,maximumFractionDigits:1})+' <span class="unit">г кофе</span>';$('ratioText').textContent=`Соотношение 1:${(1000/suggestedRatio).toLocaleString('ru-RU',{maximumFractionDigits:1})}`;$('waterOut').textContent=water+' мл';$('grindOut').textContent=grinderCfg.name.replace('Mahlkönig ','').replace('Ditting 807 Lab Sweet','Ditting 807')+' · '+String(suggestedGrind.toFixed(1)).replace('.',',');$('tempOut').textContent=suggestedTemp+' °C';
+ $('recipe').textContent=`Вода: ${water} мл · Кофе: ${coffee.toLocaleString('ru-RU',{maximumFractionDigits:1})} г · Пропорция: ${suggestedRatio.toLocaleString('ru-RU',{maximumFractionDigits:1})} г/л (1:${(1000/suggestedRatio).toLocaleString('ru-RU',{maximumFractionDigits:1})}) · Кофемолка: ${grinderCfg.name} · Помол: ${String(suggestedGrind.toFixed(1)).replace('.',',')} · Температура: ${suggestedTemp} °C.`;
+ $('logic').dataset.grindNote=`Выбранный помол учитывается в рекомендации: более мелкий помол обычно повышает сопротивление слоя и может увеличить время пролива и экстракцию; более крупный обычно ускоряет пролив. Доза кофе при этом не меняется автоматически - она рассчитывается из объёма воды и brew ratio. Чтобы изменить количество кофе, меняй пропорцию (г/л).`;
+ let grindHint='Начни с выбранного значения и оцени скорость пролива. Если чашка пустая и быстро протекает - попробуй мельче; если сухая и чрезмерно горькая - крупнее.';
+ if(goal==='sweet')grindHint='Для сладости и более плотного восприятия попробуй немного мельче помол, сохраняя равномерный пролив. При сухом послевкусии вернись крупнее.';
+ if(goal==='clean')grindHint='Для чистоты и прозрачности начни с чуть более крупного помола. Если чашка водянистая и кислотная - вернись мельче небольшим шагом.';
+ const roastAdvice=level==='light'?'Светлая обжарка часто требует более высокой температуры и достаточной экстракции.':level==='medium-dark'?'Для более тёмной обжарки начни с умеренной температуры, чтобы не усилить горечь и сухость.':'Для этой обжарки начни с умеренной температуры и корректируй по вкусу.';
+ const ageAdvice=ageDays===null?'Возраст зерна не задан.':ageDays<0?'Проверь дату обжарки.':ageDays<5?'Зерно очень свежее: дай ему дегазироваться и оцени рецепт повторно.':ageDays<=35?'Возраст обычно подходит для заваривания; настройку определяй по вкусу.':'Зерно уже полежало: следи за потерей ароматики, возможно потребуется чуть тоньше помол.';
+ $('logic').textContent=`Ориентировочные поправки применены к региону, разновидности, обработке, обжарке, возрасту зерна и вкусовой цели. Имя фермера само по себе не меняет рецепт: нужны характеристики конкретного лота. ${$('logic').dataset.grindNote||''} Это стартовая эвристика; финальную настройку подтверждай вкусом.`;
+ $('advice').textContent=`${roastAdvice} ${processNotes[process]} ${grindHint} ${ageAdvice} Ориентир для сравнения: около ${suggestedRatio.toLocaleString('ru-RU',{maximumFractionDigits:1})} г/л, помол ${String(suggestedGrind.toFixed(1)).replace('.',',')} и ${suggestedTemp} °C.`;
+ $('descriptors').textContent=`${originNotes[region]} ${variety==='unknown'?'Разновидность не указана.':'Разновидность: '+variety+'.'} ${processNotes[process]} Это общие тенденции, а не обещание конкретных нот в чашке.`;
+ renderOriginInfo(region,farmer,variety,process);
 }
-$("calculate").addEventListener("click", calculate);
-["water","grind","ratio","temp","region","process","variety","roast","roastlevel","goal"].forEach(id=>$(id).addEventListener("change",calculate));
-calculate();
-if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-  window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
-}
-</script>
-</body>
-</html>
+$('calculate').addEventListener('click',calculate);$('grinder').addEventListener('change',()=>{updateGrindOptions();calculate();});['water','grind','ratio','temp','roast','roastlevel','process','goal','region','variety','farmer'].forEach(id=>$(id).addEventListener('change',calculate));calculate();
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script></body></html>
